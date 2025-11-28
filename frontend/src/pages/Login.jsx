@@ -26,17 +26,67 @@ function Login() {
         department: "IT"        // or fetch from backend later
       })
     );
-    
+
     } 
 
     
 
-    else if (email.includes("hod")) role = "hod";
-    else if (email.includes("staff")) role = "staff";
-    else if (email.includes("student")) role = "student";
+    // else if (email.includes("hod")){
+    //   role = "hod";
+
+    //   localStorage.setItem(
+    //   "hod",
+    //   JSON.stringify({
+    //     name: "hodit",        // you can replace with real input
+    //     department: "IT"        // or fetch from backend later
+    //   })
+    // );
+    // } 
+
+
+    else if (email.includes("hod")) {
+  role = "hod";
+
+  const hodData = {
+    name: "hodit",       // default name
+    department: "IT"     // default department
+  };
+
+  localStorage.setItem("hod", JSON.stringify(hodData));
+}
+
+
+   
+
+    else if (email.includes("staff")){
+      role = "staff";
+
+      localStorage.setItem(
+      "staff",
+      JSON.stringify({
+        name: "staff",        // you can replace with real input
+        department: "IT"        // or fetch from backend later
+      })
+    );
+
+    } 
+
+    else if (email.includes("student")){
+      role = "student";
+
+      localStorage.setItem(
+      "student",
+      JSON.stringify({
+        name: "student",        // you can replace with real input
+        department: "IT"        // or fetch from backend later
+      })
+    );
+    } 
+
     else role = "student"; // default
 
     // STORE ROLE IN LOCALSTORAGE
+    // localStorage.setItem("loggedUser", JSON.stringify(userData));
     localStorage.setItem("role", role);
 
     // REDIRECT TO DASHBOARD

@@ -10,7 +10,8 @@ import {
   UserCheck,
   QrCode,
   BarChart2,
-  Table2
+  Table2,
+  Home
 } from "lucide-react";
 import "../CSS/Managerdashboard.css";
 import { useNavigate } from "react-router-dom";
@@ -25,35 +26,38 @@ function Sidebar() {
 
   // ---------- MENUS BASED ON ROLE ----------
   const menuItems = {
-    manager: [
-      { icon: <Users size={30} />, label: "Add Student", path:"/manager/add-students" },
-      { icon: <PlusCircle size={30} />, label: "Add Staff", path:"/manager/add-staffs" },
-      { icon: <Edit size={30} />, label: "Edit Student", path:"/manager/edit-students" },
-      { icon: <Edit size={30} />, label: "Edit Staff", path:"/manager/edit-staffs" },
-      { icon: <Calendar size={30} />, label: "Apply Leave", path:"/manager/apply-leave" }
-    ],
+  manager: [
+    // { icon: <Home size={30} />, label: "Dashboard", path: "/manager/dashboard" },
+    { icon: <Users size={30} />, label: "Add Student", path:"/manager/add-students" },
+    { icon: <PlusCircle size={30} />, label: "Add Staff", path:"/manager/add-staffs" },
+    { icon: <Edit size={30} />, label: "Edit Student", path:"/manager/edit-students" },
+    { icon: <Edit size={30} />, label: "Edit Staff", path:"/manager/edit-staffs" },
+    { icon: <Calendar size={30} />, label: "Apply Leave", path:"/manager/apply-leave" }
+  ],
 
-    hod: [
-      { icon: <Users size={30} />, label: "Assign Staff to Class", path:"/hod/assign-staff" },
-      { icon: <ClipboardList size={30} />, label: "Approve Staff Leave", path:"/hod/leave-approve" },
-      { icon: <Calendar size={30} />, label: "Apply Leave", path:"/hod/apply-leave" }
+  hod: [
+    // { icon: <Home size={30} />, label: "Dashboard", path: "/hod/dashboard" },
+    { icon: <Users size={30} />, label: "Assign Staff to Class", path:"/hod/assign-staff" },
+    { icon: <ClipboardList size={30} />, label: "Approve Staff Leave", path:"/hod/leave-approve" },
+    { icon: <Calendar size={30} />, label: "Apply Leave", path:"/hod/apply-leave" }
+  ],
 
-    ],
+  staff: [
+    // { icon: <Home size={30} />, label: "Dashboard", path: "/staff/dashboard" },
+    { icon: <UserCheck size={30} />, label: "Approve Student Leave", path:"/staff/approve-leave" },
+    { icon: <Calendar size={30} />, label: "Apply Leave to HOD", path:"/staff/apply-leave" },
+    { icon: <QrCode size={30} />, label: "Generate OTP", path:"/staff/generate-otp" },
+    { icon: <BarChart2 size={30} />, label: "View Attendance", path:"/staff/view-attendance" }
+  ],
 
-    staff: [
-      { icon: <UserCheck size={30} />, label: "Approve Student Leave", path:"/staff/approve-leave" },
-      { icon: <Calendar size={30} />, label: "Apply Leave to HOD", path:"/staff/apply-leave" },
-      { icon: <QrCode size={30} />, label: "Generate OTP", path:"/staff/generate-otp" },
-      { icon: <BarChart2 size={30} />, label: "View Attendance", path:"/staff/view-attendance" }
-    ],
-
-    student: [
-      { icon: <Calendar size={30} />, label: "Apply Leave", path:"/student/leave-apply" },
-      { icon: <QrCode size={30} />, label: "Mark Attendance", path:"/student/mark-attendance" },
-      { icon: <BarChart2 size={30} />, label: "Attendance %", path:"/student/view-attendance" },
-      { icon: <Table2 size={30} />, label: "View Time Table", path:"/student/view-timetable" }
-    ]
-  };
+  student: [
+    // { icon: <Home size={30} />, label: "Dashboard", path: "/student/dashboard" },
+    { icon: <Calendar size={30} />, label: "Apply Leave", path:"/student/leave-apply" },
+    { icon: <QrCode size={30} />, label: "Mark Attendance", path:"/student/mark-attendance" },
+    { icon: <BarChart2 size={30} />, label: "Attendance %", path:"/student/view-attendance" },
+    { icon: <Table2 size={30} />, label: "View Time Table", path:"/student/view-timetable" }
+  ]
+};
 
   // Select menu based on role
   const items = menuItems[role] || [];
