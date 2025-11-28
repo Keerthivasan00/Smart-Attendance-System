@@ -16,7 +16,21 @@ function Login() {
     // --- SIMPLE DEMO ROLE LOGIC (Change this later with backend) ---
     let role = "";
 
-    if (email.includes("manager")) role = "manager";
+    if (email.includes("manager")){
+      role = "manager";
+
+      localStorage.setItem(
+      "manager",
+      JSON.stringify({
+        name: "VARUN M",        // you can replace with real input
+        department: "IT"        // or fetch from backend later
+      })
+    );
+    
+    } 
+
+    
+
     else if (email.includes("hod")) role = "hod";
     else if (email.includes("staff")) role = "staff";
     else if (email.includes("student")) role = "student";
