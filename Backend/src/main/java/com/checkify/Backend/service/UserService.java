@@ -6,15 +6,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class UserService {
     @Autowired
     MyUserDetailRepo repo;
     BCryptPasswordEncoder passwordEncoder =new BCryptPasswordEncoder(12);
 
-    public void AddUser(Users user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRole(user.getRole().toUpperCase());
-        repo.save(user);
+    public Users findByEmail(String email) {
+        return repo.getByEmail(email);
+
     }
+
+//    public void AddUser(Users user) {
+//        user.setPassword(passwordEncoder.encode(user.getPassword()));
+//        user.setRole(user.getRole().toUpperCase());
+//        repo.save(user);
+//    }
+
 }
